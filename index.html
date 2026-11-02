@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hasib AI</title>
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #101827;
+  color: white;
+}
+header {
+  background: #17243a;
+  padding: 22px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+main {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 15px;
+}
+#chat {
+  height: 55vh;
+  overflow-y: auto;
+  background: #1b2a41;
+  padding: 15px;
+  border-radius: 14px;
+}
+.msg {
+  background: #30415b;
+  padding: 12px;
+  border-radius: 10px;
+  margin: 10px 0;
+  overflow-wrap: anywhere;
+}
+.user { background: #176b53; }
+.controls {
+  display: flex;
+  gap: 8px;
+  margin-top: 15px;
+}
+input {
+  flex: 1;
+  min-width: 0;
+  padding: 14px;
+  border-radius: 10px;
+  border: none;
+}
+button {
+  background: #16a878;
+  color: white;
+  border: none;
+  padding: 13px;
+  border-radius: 10px;
+}
+</style>
+</head>
+<body>
+<header>🤖 HASIB AI</header>
+<main>
+<h2>Your AI Assistant</h2>
+<p>Ask questions and explore new ideas.</p>
+<div id="chat">
+<div class="msg">Hello! Welcome to Hasib AI. How can I help you?</div>
+</div>
+<div class="controls">
+<input id="question" placeholder="Ask something...">
+<button onclick="send()">Send</button>
+</div>
+</main>
+<script>
+function send() {
+  const input = document.getElementById("question");
+  const chat = document.getElementById("chat");
+  const q = input.value.trim();
+  if (!q) return;
+
+  const user = document.createElement("div");
+  user.className = "msg user";
+  user.textContent = q;
+  chat.appendChild(user);
+
+  const reply = document.createElement("div");
+  reply.className = "msg";
+  reply.textContent =
+    "Thanks for your question! AI connection will be added in the next step.";
+  chat.appendChild(reply);
+
+  input.value = "";
+  chat.scrollTop = chat.scrollHeight;
+}
+</script>
+</body>
+</html>
